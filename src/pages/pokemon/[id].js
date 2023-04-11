@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import { client } from "@/Components/appoloClient";
+import { client } from "@/components/appoloClinet";
 import { useRouter } from "next/router";
+import Navbar from "@/components/Navbar";
 let api = process.env.NEXT_PUBLIC_API;
 console.log("API IS", api);
 
@@ -10,7 +11,12 @@ const PokemonDetail = ({ pokemon }) => {
   if (query.isFallback) return <p>Loading...</p>;
 
   console.log(pokemon);
-  return <>page</>;
+  return (
+    <>
+      <Navbar />
+      <h1>Inside Pokedesk</h1>
+    </>
+  );
 };
 
 export async function getStaticPaths() {

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 // import CardComponent from "../Components/CardComponent";
 import CardComponent from "@/components/CardComponent";
 import { useRouter } from "next/router";
@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import Layout from "@/components/Layout";
 
 const Home = ({ pokemons }) => {
+  const [pokemonArrary, setPokemonArray] = useState({ pokemons });
   const router = useRouter();
   let routeToPokemonPage = (id) => {
     router.push("/pokemon/" + id);
@@ -20,7 +21,7 @@ const Home = ({ pokemons }) => {
         <title>Pokedex</title>
       </Head>
 
-      <div className="flex w-screen  border border-yellow-600 flex-col">
+      <div className="bg-gray-300">
         <Navbar />
         <div id="heading " className="flex w-screen items-center flex-col">
           <h1 className="text-center w-screen mt-5 text-2xl">
@@ -31,8 +32,7 @@ const Home = ({ pokemons }) => {
 
         {/* pokemon list render */}
 
-        <div className="flex w-screen border border-red-600 flex-wrap">
-          <h2>I am H2</h2>
+        <div className="flex flex-wrap justify-around mx-auto items-center w-[95vw] border border-red-500">
           {pokemons.map((pokemon) => (
             <div
               onClick={() => routeToPokemonPage(pokemon.id)}
