@@ -2,6 +2,7 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { client } from "@/components/appoloClinet";
 import { useRouter } from "next/router";
 import Navbar from "@/components/Navbar";
+import Layout from "@/components/Layout";
 let api = process.env.NEXT_PUBLIC_API;
 console.log("API IS", api);
 
@@ -13,8 +14,21 @@ const PokemonDetail = ({ pokemon }) => {
   console.log(pokemon);
   return (
     <>
-      <Navbar />
-      <h1>Inside Pokedesk</h1>
+      <Layout title={pokemon.name}>
+        {/* main container */}
+        <div id="main">
+          
+          {/* image and detail secion */}
+          <div>
+            {/* image */}
+            <div></div>
+            {/* detail */}
+            <div></div>
+
+          </div>
+
+        </div>
+      </Layout>
     </>
   );
 };
