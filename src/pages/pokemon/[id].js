@@ -207,22 +207,7 @@ export async function getStaticProps(context) {
           types
           resistant
           weaknesses
-          fleeRate
-          maxCP
-          maxHP
           image
-          attacks {
-            fast {
-              name
-              type
-              damage
-            }
-            special {
-              name
-              type
-              damage
-            }
-          }
         }
       }
     `,
