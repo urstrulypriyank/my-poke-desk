@@ -24,7 +24,7 @@ const CardComponent = ({ pokemon }) => {
   };
   // console.log(pokemon);
   return (
-    <div className="p-3 shadow-xs rounded-lg shadow-[#f5f5f5]]  flex justify-center max-sm:w-[90vw] ">
+    <div className="p-3 shadow-sm shadow-white rounded-lg   flex justify-center max-sm:w-[90vw] transform transition duration-500 hover:scale-110 ">
       <div
         className="
          bg-white p-7
