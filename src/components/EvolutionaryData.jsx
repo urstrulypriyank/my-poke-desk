@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useLazyQuery, gql } from "@apollo/client";
-// import styles from "@/Styles/EvolutionaryData";
 import CardComponent from "./CardComponent";
 import { useRouter } from "next/router";
 const GET_POKEMON = gql`
@@ -33,7 +32,7 @@ const PokemonPopup = ({ name, setShowPopup, showPopup }) => {
     if (showPopup) {
       getPokemon({ variables: { name } });
     }
-  }, [showPopup, name]);
+  }, [showPopup, name, getPokemon]);
   let routeToPokemonPage = (id) => {
     setShowPopup(false);
     router.push("/pokemon/" + id);
