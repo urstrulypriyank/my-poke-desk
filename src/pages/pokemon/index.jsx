@@ -55,7 +55,7 @@ const Home = ({ pokemons }) => {
   function handlePrevious() {
     setPageNumber((page) => page - 1);
   }
-  async function handleNext() {
+  function handleNext() {
     setPageNumber(pageNumber + 1);
   }
 
