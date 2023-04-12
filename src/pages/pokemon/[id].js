@@ -5,16 +5,20 @@ import Navbar from "@/components/Navbar";
 import Layout from "@/components/Layout";
 import { color } from "@/components/badgeColors";
 import BadgeCardComponents from "@/components/BadgeCardComponents";
+import EvolutionaryData from "@/components/EvolutionaryData";
+import { useState } from "react";
 let api = process.env.NEXT_PUBLIC_API;
 
-console.log("API IS", api);
+// console.log("API IS", api);
 
 const PokemonDetail = ({ pokemon }) => {
+  const [showPopup, setShowPopup] = useState(false);
+
   const router = useRouter();
   const query = router.query;
   if (query.isFallback) return <p>Loading...</p>;
 
-  console.log(pokemon);
+  // console.log(pokemon);
   return (
     <>
       <Layout title={pokemon.name}>
@@ -131,12 +135,22 @@ const PokemonDetail = ({ pokemon }) => {
 
               {/* button for evolutionary data */}
               <div className="flex w-full">
-                <button className="px-3 py-1 bg-blue-500 rounded-md w-full border-black mx-5 hover:text-gray-800">
+                <button
+                  className="px-3 py-1 bg-blue-500 rounded-md w-full border-black mx-5 hover:text-gray-800"
+                  onClick={() => {
+                    setShowPopup(!showPopup);
+                  }}
+                >
                   Check Evolutionary Data
                 </button>
               </div>
             </div>
           </div>
+          <EvolutionaryData
+            name={pokemon.name}
+            setShowPopup={setShowPopup}
+            showPopup={showPopup}
+          />
         </div>
       </Layout>
     </>
@@ -172,7 +186,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  console.log(params.id);
+  // console.log(params.id);
   // Fetch Pokemon details from GraphQL API based on id
   const response = await client.query({
     query: gql`
@@ -217,7 +231,7 @@ export async function getStaticProps(context) {
     },
   });
   const { data } = response;
-  console.log(data.pokemon);
+  // console.log(data.pokemon);
 
   return {
     props: {
