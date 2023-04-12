@@ -50,65 +50,90 @@ const PokemonDetail = ({ pokemon }) => {
 
               {/* detail- card */}
 
-              <div className="bg-blue-500 flex rounded-lg px-10">
-                <div className="container grid grid-cols-2 gap-2 space-y-2 my-3 justify-center items-center">
+              <div className="bg-blue-500 flex rounded-lg px-10 max-sm:px-2">
+                <div className="container grid grid-cols-2 gap-2 space-y-2 my-3 justify-center items-center mx-auto">
                   {/* --------first row ------ */}
                   <div className="flex flex-col space-y-1">
-                    <div className="tracking-wider font-extrabold text-white text-xl">
+                    <div className="tracking-wider font-extrabold text-white text-xl max-sm:text-sm">
                       MaxHeight{" "}
                     </div>
-                    <div className="font-smeibold text-xl">
+                    <div className="font-smeibold text-xl max-sm:text-xl">
                       {pokemon.height.maximum}
                     </div>
                   </div>
 
                   {/* --------first row ------ */}
                   <div className="flex flex-col space-y-1">
-                    <div className="tracking-wider font-extrabold text-white text-xl">
+                    <div className="tracking-wider font-extrabold text-white text-xl max-sm:text-xl">
                       MinHeight{" "}
                     </div>
-                    <div className="font-smeibold text-xl">
+                    <div className="font-smeibold text-xl max-sm:text-xl">
                       {pokemon.height.minimum}
                     </div>
                   </div>
 
                   {/* --------first row ------ */}
                   <div className="flex flex-col space-y-1">
-                    <div className="tracking-wider font-extrabold text-white text-xl">
+                    <div className="tracking-wider font-extrabold text-white text-xl max-sm:text-xl">
                       MaxWeight{" "}
                     </div>
-                    <div className="font-smeibold text-xl">
+                    <div className="font-smeibold text-xl max-sm:text-xl">
                       {pokemon.weight.maximum}
                     </div>
                   </div>
 
                   {/* --------first row ------ */}
                   <div className="flex flex-col space-y-1">
-                    <div className="tracking-wider font-extrabold text-white text-xl">
+                    <div className="tracking-wider font-extrabold text-white text-xl max-sm:text-xl">
                       MinWeight{" "}
                     </div>
-                    <div className="font-smeibold text-xl">
+                    <div className="font-smeibold text-xl max-sm:text-xl">
                       {pokemon.weight.minimum}
                     </div>
                   </div>
 
                   {/* --------category row ------ */}
                   <div className="flex flex-col space-y-1">
-                    <div className="tracking-wider font-extrabold text-white text-xl">
+                    <div className="tracking-wider font-extrabold text-white text-xl max-sm:text-xl">
                       Category{" "}
                     </div>
-                    <div className="font-smeibold text-xl">
+                    <div className="font-smeibold text-xl max-sm:text-xl">
                       {pokemon.classification}
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Pokemon Badges */}
+              {/* Pokemon Badges for own types */}
               <div className="p-5">
                 <h4 className="text-xl font-semibold tracking-wider">Types</h4>
 
                 <BadgeCardComponents types={pokemon.types} />
+              </div>
+
+              {/* Pokemon Badges for weakness types */}
+              <div className="p-5">
+                <h4 className="text-xl font-semibold tracking-wider">
+                  Weaknesses
+                </h4>
+
+                <BadgeCardComponents types={pokemon.weaknesses} />
+              </div>
+
+              {/* Pokemon Badges for resistant types */}
+              <div className="p-5">
+                <h4 className="text-xl font-semibold tracking-wider">
+                  Resistant
+                </h4>
+
+                <BadgeCardComponents types={pokemon.resistant} />
+              </div>
+
+              {/* button for evolutionary data */}
+              <div className="flex w-full">
+                <button className="px-3 py-1 bg-blue-500 rounded-md w-full border-black mx-5 hover:text-gray-800">
+                  Check Evolutionary Data
+                </button>
               </div>
             </div>
           </div>
