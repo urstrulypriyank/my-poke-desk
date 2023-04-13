@@ -13,11 +13,8 @@
     <a href="https://github.com/urstrulypriyank/POKEDEX"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/urstrulypriyank/POKEDEX">View Demo</a>
-    .
-    <a href="https://github.com/urstrulypriyank/POKEDEX/issues">Report Bug</a>
-    .
-    <a href="https://github.com/urstrulypriyank/POKEDEX/issues">Request Feature</a>
+    <a href="https://pokedex-nu-sooty.vercel.app/">View Demo</a>
+   
   </p>
 </p>
 
@@ -59,9 +56,10 @@ This is an example of how to list things you need to use the software and how to
 - NodeJs
 
 ````sh
-apt install nodejs ```
+apt install nodejs
+ ````
 
-* npm
+- npm
 
 ```sh
 npm install npm@latest -g
