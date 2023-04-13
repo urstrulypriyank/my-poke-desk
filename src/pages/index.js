@@ -5,46 +5,81 @@ import CardComponent from "@/components/CardComponent";
 import { useRouter } from "next/router";
 // import { client } from "@/Components/appoloClient";
 import { client } from "@/components/appoloClinet";
-import { gql } from "@apollo/client";
+import { useLazyQuery, gql } from "@apollo/client";
 import Navbar from "@/components/Navbar";
-import Layout from "@/components/Layout";
-import { render } from "react-dom";
-
+import LoadComponent from "@/components/Loading";
+const GET_POKEMON = gql`
+  query GetPokemons($first: Int!) {
+    pokemons(first: $first) {
+      id
+      number
+      name
+      image
+      types
+    }
+  }
+`;
 const Home = ({ pokemons }) => {
   const [pokemonArrary, setPokemonArray] = useState(pokemons);
+  const [currentpokemonArrary, setcurrentPokemonArray] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [getPokemon, { loading, error, data }] = useLazyQuery(GET_POKEMON);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await client.query({
-          query: gql`
-            query GetPokemons($first: Int!) {
-              pokemons(first: $first) {
-                id
-                number
-                name
-                image
-                types
-              }
-            }
-          `,
-          variables: {
-            first: pageNumber * 20,
-          },
-        });
-        const { data } = response ?? {};
-        const new_data = data.pokemons.slice(
-          pageNumber * 20 - 20,
-          pageNumber * 20
-        );
-        setPokemonArray(new_data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
+    if (pageNumber * 20 > 60) {
+      console.log("Inside If");
+      console.log(pageNumber);
+      getPokemon({ variables: { first: pageNumber * 20 } });
+
+      // const fetchData = async () => {
+      //   try {
+      //     const response = await client.query({
+      //       query: gql`
+      //         query GetPokemons($first: Int!) {
+      //           pokemons(first: $first) {
+      //             id
+      //             number
+      //             name
+      //             image
+      //             types
+      //           }
+      //         }
+      //       `,
+      //       variables: {
+      //         first: pageNumber * 20,
+      //       },
+      //     });
+      //     const { data } = response ?? {};
+      //     const new_data = data.pokemons.slice(
+      //       pageNumber * 20 - 20,
+      //       pageNumber * 20
+      //     );
+      //     setcurrentPokemonArray(new_data);
+      //   } catch (error) {
+      //     console.error("Error fetching data:", error);
+      //   }
+      // };
+      // fetchData();
+    } else {
+      console.log("Inside Else", pageNumber);
+
+      setcurrentPokemonArray(
+        pokemonArrary?.slice(pageNumber * 20 - 20, pageNumber * 20)
+      );
+    }
   }, [pageNumber]);
+
+  useEffect(() => {
+    if (!loading && !error && data) {
+      console.log(data);
+      // const { data2 } = data ?? {};
+      const new_data = data?.pokemons.slice(
+        pageNumber * 20 - 20,
+        pageNumber * 20
+      );
+      setcurrentPokemonArray(new_data);
+    }
+  }, [data]);
 
   const router = useRouter();
   let routeToPokemonPage = (id) => {
@@ -53,10 +88,14 @@ const Home = ({ pokemons }) => {
 
   // Pagination Funcs
   function handlePrevious() {
-    setPageNumber((page) => page - 1);
+    setPageNumber(pageNumber - 1);
   }
   function handleNext() {
     setPageNumber(pageNumber + 1);
+  }
+
+  if (loading) {
+    return <LoadComponent />;
   }
 
   return (
@@ -77,7 +116,7 @@ const Home = ({ pokemons }) => {
         {/* pokemon list render */}
 
         <div className="flex flex-wrap justify-between  mx-auto items-center w-[90vw] ">
-          {pokemonArrary.map((pokemon) => (
+          {currentpokemonArrary.map((pokemon) => (
             <div
               onClick={() => routeToPokemonPage(pokemon.id)}
               key={pokemon.id}
@@ -118,7 +157,7 @@ export async function getStaticProps() {
   const response = await client.query({
     query: gql`
       query GetPokemons {
-        pokemons(first: 20) {
+        pokemons(first: 60) {
           id
           number
           name

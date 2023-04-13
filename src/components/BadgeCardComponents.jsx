@@ -1,7 +1,7 @@
 import React from "react";
 import { color } from "./badgeColors";
 const BadgeCardComponents = ({ types }) => {
-  console.log(types, "badge card components types map array");
+  // console.log(types, "badge card components types map array");
   return (
     <div>
       {types?.map((type) => {

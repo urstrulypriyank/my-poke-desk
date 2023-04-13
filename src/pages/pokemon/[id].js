@@ -8,13 +8,14 @@ import { useState } from "react";
 import BadgeCardContainer from "@/components/BadgeCardContainer";
 import Headder from "@/components/dashBoard/Headder";
 import DetailCard from "@/components/dashBoard/DetailCard";
+import Loading from "@/components/Loading";
 
 const PokemonDetail = ({ pokemon }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const router = useRouter();
   const query = router.query;
-  if (query.isFallback) return <p>Loading...</p>;
+  if (query.isFallback) return <Loading />;
 
   return (
     <Layout title={pokemon?.name}>
@@ -83,7 +84,7 @@ export async function getStaticPaths() {
   const response = await client.query({
     query: gql`
       query GetPokemons {
-        pokemons(first: 3) {
+        pokemons(first: 60) {
           id
         }
       }
