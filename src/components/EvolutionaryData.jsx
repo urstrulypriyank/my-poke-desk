@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLazyQuery, gql } from "@apollo/client";
 import CardComponent from "./CardComponent";
 import { useRouter } from "next/router";
+import Loading from "./Loading";
 const GET_POKEMON = gql`
   query Pokemon($name: String) {
     pokemon(name: $name) {
@@ -51,10 +52,11 @@ const PokemonPopup = ({ name, setShowPopup, showPopup }) => {
   if (!showPopup) {
     return null; // return null when popup is closed
   }
+
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-40 ">
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : error ? (
         <p>Error: {error.message}</p>
       ) : (
