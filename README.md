@@ -39,8 +39,7 @@
 
 ![Screen Shot](https://raw.githubusercontent.com/urstrulypriyank/my-poke-desk/main/assets/page1.png
 )
-![Screen Shot](https://raw.githubusercontent.com/urstrulypriyank/my-poke-desk/main/assets/page2.png
-)
+![Screen Shot](https://raw.githubusercontent.com/urstrulypriyank/my-poke-desk/main/assets/page2%20.png)
 
 It is just a simple pokedex clone built using NextJS Tailwindcss and Apollo-GraphQL-Clinet
 
