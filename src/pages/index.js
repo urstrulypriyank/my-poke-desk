@@ -27,42 +27,8 @@ const Home = ({ pokemons }) => {
 
   useEffect(() => {
     if (pageNumber * 20 > 60) {
-      console.log("Inside If");
-      console.log(pageNumber);
       getPokemon({ variables: { first: pageNumber * 20 } });
-
-      // const fetchData = async () => {
-      //   try {
-      //     const response = await client.query({
-      //       query: gql`
-      //         query GetPokemons($first: Int!) {
-      //           pokemons(first: $first) {
-      //             id
-      //             number
-      //             name
-      //             image
-      //             types
-      //           }
-      //         }
-      //       `,
-      //       variables: {
-      //         first: pageNumber * 20,
-      //       },
-      //     });
-      //     const { data } = response ?? {};
-      //     const new_data = data.pokemons.slice(
-      //       pageNumber * 20 - 20,
-      //       pageNumber * 20
-      //     );
-      //     setcurrentPokemonArray(new_data);
-      //   } catch (error) {
-      //     console.error("Error fetching data:", error);
-      //   }
-      // };
-      // fetchData();
     } else {
-      console.log("Inside Else", pageNumber);
-
       setcurrentPokemonArray(
         pokemonArrary?.slice(pageNumber * 20 - 20, pageNumber * 20)
       );
@@ -71,8 +37,6 @@ const Home = ({ pokemons }) => {
 
   useEffect(() => {
     if (!loading && !error && data) {
-      console.log(data);
-      // const { data2 } = data ?? {};
       const new_data = data?.pokemons.slice(
         pageNumber * 20 - 20,
         pageNumber * 20
@@ -169,7 +133,6 @@ export async function getStaticProps() {
   });
 
   const { data } = response ?? {};
-  // console.log(data.pokemons);
 
   return {
     props: {
