@@ -21,29 +21,27 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/urstrulypriyank/POKEDEX/total) ![Contributors](https://img.shields.io/github/contributors/urstrulypriyank/POKEDEX?color=dark-green) ![Issues](https://img.shields.io/github/issues/urstrulypriyank/POKEDEX) ![License](https://img.shields.io/github/license/urstrulypriyank/POKEDEX) 
+![Live Preview](https://pokedex-nu-sooty.vercel.app/)
 
 ## Table Of Contents
 
-* [About the Project](#about-the-project)
-* [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Live Preview](#LivePreview)
-* [License](#license)
-* [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
+- [About the Project](#about-the-project)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Live Preview](#LivePreview)
+- [License](#license)
+- [Authors](#authors)
+- [Acknowledgements](#acknowledgements)
 
 ## About The Project
-
-![Screen Shot](https://raw.githubusercontent.com/urstrulypriyank/my-poke-desk/main/assets/page1.png
-)
+### Main Page
+![Screen Shot](https://raw.githubusercontent.com/urstrulypriyank/my-poke-desk/main/assets/page1.png)
+### DashBoard View
 ![Screen Shot](https://raw.githubusercontent.com/urstrulypriyank/my-poke-desk/main/assets/page2%20.png)
 
 It is just a simple pokedex clone built using NextJS Tailwindcss and Apollo-GraphQL-Clinet
-
-
 
 ## Built With
 
@@ -58,20 +56,18 @@ To get a local copy up and running follow these simple example steps.
 
 This is an example of how to list things you need to use the software and how to install them.
 
+- NodeJs
 
-* NodeJs
-
-```sh
+````sh
 apt install nodejs ```
 
 * npm
 
 ```sh
 npm install npm@latest -g
-```
+````
 
 ### Installation
-
 
 1. Clone the repo
 
@@ -84,6 +80,7 @@ git clone https://github.com/urstrulypriyank/my-poke-desk.git
 ```sh
 npm install
 ```
+
 ## Getting Started
 
 First, run the development server:
@@ -100,8 +97,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## LivePreview
 
-* **LivePreview** - *View Pokedex* - [here](https://pokedex-nu-sooty.vercel.app/) - *Built The Project*
-
+- **LivePreview** - _View Pokedex_ - [here](https://pokedex-nu-sooty.vercel.app/) - _Built The Project_
 
 ### Creating A Pull Request
 
@@ -117,9 +113,8 @@ Distributed under the MIT License. See [LICENSE](https://github.com/urstrulypriy
 
 ## Authors
 
-* **PRIYANK RAI** - *COMPUTER SCIENCE STUDENT* - [PRIYANK RAI](https://github.com/urstrulypriyank) - *Built The Project*
+- **PRIYANK RAI** - _COMPUTER SCIENCE STUDENT_ - [PRIYANK RAI](https://github.com/urstrulypriyank) - _Built The Project_
 
 ## Acknowledgements
 
-* [Priyank Rai](https://priyankrai.live)
-
+- [Priyank Rai](https://priyankrai.live)
