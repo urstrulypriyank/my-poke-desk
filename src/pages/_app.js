@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
 import {
   ApolloClient,
@@ -14,6 +15,7 @@ const client = new ApolloClient({
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Navbar />
       <ApolloProvider client={client}>
         <Component {...pageProps} />
       </ApolloProvider>

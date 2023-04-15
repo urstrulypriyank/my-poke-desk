@@ -69,7 +69,6 @@ const Home = ({ pokemons }) => {
       </Head>
 
       <div className="bg-[#f2f2f2]">
-        <Navbar />
         <div id="heading " className="flex w-screen items-center flex-col">
           <h1 className="text-center w-screen mt-5 text-2xl">
             Welcome to the Pokedesk
